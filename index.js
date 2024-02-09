@@ -7,10 +7,15 @@ const app = express();
 app.use(cookieParser());
 
 var server = require("http").createServer(app);
-var port = process.env.PORT;
+
+const port = process.env.PORT || 3000;
 
 server.listen(port, function () {
   console.log("Server listening on port " + port);
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
 app.get("/list", (req, res, next) => {

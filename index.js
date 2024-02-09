@@ -7,7 +7,7 @@ const app = express();
 app.use(cookieParser());
 
 var server = require("http").createServer(app);
-var port = 3000;
+var port = process.env.PORT;
 
 server.listen(port, function () {
   console.log("Server listening on port " + port);

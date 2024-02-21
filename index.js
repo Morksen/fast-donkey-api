@@ -32,7 +32,14 @@ app.get("/inc", (req, res, next) => {
 
 app.get("/cookie-echo", (req, res, next) => {
   var value = req.cookies["cookie-in"];
+  //was-tst-apim.azure-api.net/fast-donkey
+  var out = "";
+  for (const [key, value] of Object.entries(req.cookies)) {
+    console.log(`${key}: ${value}`);
+    out += `${key}: ${value}\n`;
+  }
+
   res
     .cookie("cookie-out", value, { maxAge: 10 })
-    .send("out cookie set to" + value);
+    .send("out cookie set to " + value + "\n" + out);
 });

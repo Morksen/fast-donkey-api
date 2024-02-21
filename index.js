@@ -40,6 +40,6 @@ app.get("/cookie-echo", (req, res, next) => {
   }
 
   res
-    .cookie("cookie-out", value, { maxAge: 10 })
+    .cookie("cookie-out", value, { maxAge: 60000 })
     .send("out cookie set to " + value + "\n" + out);
 });

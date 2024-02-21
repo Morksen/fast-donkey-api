@@ -29,3 +29,10 @@ app.get("/inc", (req, res, next) => {
   }
   res.cookie("inc", ++inc, { maxAge: 10800 }).send("cookie set to" + inc);
 });
+
+app.get("/cookie-echo", () => {
+  var value = req.cookies["cookie-in"];
+  res
+    .cookie("cookie-out", value, { maxAge: 10 })
+    .send("out cookie set to" + value);
+});

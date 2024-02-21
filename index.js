@@ -39,7 +39,5 @@ app.get("/cookie-echo", (req, res, next) => {
     out += `${key}: ${value}\n`;
   }
 
-  res
-    .cookie("cookie-out", val, { maxAge: 60000 })
-    .send("out cookie set to " + val + "\n" + out);
+  res.cookie("JSESSIONID", val, { maxAge: 60000 }).send(out);
 });
